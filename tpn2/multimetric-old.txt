@@ -1,0 +1,28 @@
+
+  "overall": {
+    "comment_ratio": 2.726,
+    "cyclomatic_complexity": 4,
+    "fanout_external": 3,
+    "fanout_internal": 0,
+    "halstead_bugprop": 0.393,
+    "halstead_difficulty": 21.888,
+    "halstead_effort": 25788.811,
+    "halstead_timerequired": 1432.712,
+    "halstead_volume": 1178.244,
+    "loc": 49,
+    "maintainability_index": 70.259,
+    "operands_sum": 103,
+    "operands_uniq": 40,
+    "operators_sum": 99,
+    "operators_uniq": 17,
+    "pylint": 100.0,
+    "tiobe": 93.807,
+    "tiobe_compiler": 100.0,
+    "tiobe_complexity": 58.716,
+    "tiobe_coverage": 100.0,
+    "tiobe_duplication": 100.0,
+    "tiobe_fanout": 100.0,
+    "tiobe_functional": 100.0,
+    "tiobe_security": 100.0,
+    "tiobe_standard": 100.0
+ 

@@ -1,0 +1,47 @@
+En una primera instancia Pylint dio estos resultados: 
+
+C:\Users\start\Desktop\F\proyectos\TRABAJOPRACTICON1\-UADER_IS2_GonzalezCalderon\tpn2>pylint chatgptgonzalezcalderon.py
+************* Module chatgptgonzalezcalderon
+chatgptgonzalezcalderon.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+chatgptgonzalezcalderon.py:8:0: E0401: Unable to import 'requests' (import-error)
+chatgptgonzalezcalderon.py:9:0: E0401: Unable to import 'readline' (import-error)
+chatgptgonzalezcalderon.py:29:11: W0718: Catching too general exception Exception (broad-exception-caught)
+chatgptgonzalezcalderon.py:60:11: W0718: Catching too general exception Exception (broad-exception-caught)
+chatgptgonzalezcalderon.py:74:11: W0718: Catching too general exception Exception (broad-exception-caught)
+chatgptgonzalezcalderon.py:9:0: C0411: standard import "readline" should be placed before third party import "requests" (wrong-import-order)
+chatgptgonzalezcalderon.py:10:0: C0411: standard import "sys" should be placed before third party import "requests" (wrong-import-order)
+chatgptgonzalezcalderon.py:9:0: W0611: Unused import readline (unused-import)
+
+-----------------------------------
+Your code has been rated at 5.75/10
+
+Luego de mejorarlo de la siguiente manera:
+
+C0114: Missing module docstring
+→ Falta un comentario descriptivo al principio del archivo.
+
+E0401: Unable to import 'requests' y 'readline'
+→ Es porque no están instalados en el entorno actual de Python. Solucionalo ejecutando:
+
+pip install requests
+readline puede no estar disponible en Windows; podés eliminarlo si no lo estás usando.
+
+W0718: Catching too general exception Exception
+→ Estás capturando errores demasiado genéricos. Podés reemplazar Exception por errores más específicos, o justificar su uso si es a propósito.
+
+C0411: wrong-import-order
+→ El orden de los imports debe ser: estándar, luego librerías externas, y por último módulos propios.
+
+W0611: Unused import readline
+→ Importaste readline pero nunca lo usaste. Eliminá esa línea.
+
+Nos arrojo este resultado:
+
+C:\Users\start\Desktop\F\proyectos\TRABAJOPRACTICON1\-UADER_IS2_GonzalezCalderon\tpn2>pylint chatgptgonzalezcalderon.py
+************* Module chatgptgonzalezcalderon
+chatgptgonzalezcalderon.py:23:11: W0718: Catching too general exception Exception (broad-exception-caught)
+chatgptgonzalezcalderon.py:31:19: W3101: Missing timeout argument for method 'requests.post' can cause your program to hang indefinitely (missing-timeout)
+chatgptgonzalezcalderon.py:61:11: W0718: Catching too general exception Exception (broad-exception-caught)
+
+------------------------------------------------------------------
+Your code has been rated at 9.27/10 (previous run: 5.75/10, +3.52)

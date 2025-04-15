@@ -1,0 +1,56 @@
+Esto nos sugiero mejorar chat gpt:
+
+✅ 1. Manejo de excepciones más específico
+Motivo: Evitar capturar Exception en general.
+Sugerencia:
+
+Usar errores específicos como requests.exceptions.Timeout, requests.exceptions.RequestException, KeyboardInterrupt, etc.
+
+Ejemplo:
+
+python
+Copiar
+Editar
+except requests.exceptions.Timeout:
+    print("La solicitud demoró demasiado. Verificá tu conexión o el servidor.")
+✅ 2. Agregar timeout a la solicitud HTTP
+Motivo: Evita cuelgues si el servidor Ollama no responde.
+Sugerencia:
+
+Agregar timeout=10 al requests.post.
+
+✅ 3. Modularidad
+Motivo: Mejorar la claridad y mantenimiento.
+Sugerencia:
+
+Separar funciones en un archivo propio (por ejemplo, utils.py) si el proyecto crece.
+
+Agregar un archivo config.py con la URL base y parámetros si se quiere escalar.
+
+✅ 4. Validación de entrada del usuario
+Motivo: Evitar enviar consultas irrelevantes o mal formateadas.
+Sugerencia:
+
+Verificar que no se envíen cadenas demasiado cortas o con solo espacios.
+
+✅ 5. Docstrings y tipado
+Motivo: Mejora la documentación y ayuda con autocompletado en editores.
+Sugerencia: Agregar comentarios tipo docstring y tipos:
+
+python
+Copiar
+Editar
+def obtener_consulta() -> str:
+    """Solicita y devuelve una consulta escrita por el usuario."""
+✅ 6. Guardar historial en archivo (opcional)
+Motivo: Permitir revisar consultas anteriores al reiniciar el programa.
+Sugerencia: Guardar las consultas en un archivo historial.txt.
+
+python
+Copiar
+Editar
+with open("historial.txt", "a", encoding="utf-8") as f:
+    f.write(consulta + "\n")
+✅ 7. Finalizar con una opción para salir
+Motivo: Hacer el flujo más amigable.
+Sugerencia: Permitir que el usuario escriba "salir" o "exit" para terminar el programa.
